@@ -9,7 +9,7 @@ const api = 'https://henry-tech-app.vercel.app';
 export const server = http.createServer(app);
 const io = new SocketServer(server, {
   cors: {
-    origin: 'https://henry-tech-ojs5tc1d5-henrytech.vercel.app',
+    origin: 'https://henry-tech-app.vercel.app',
   },
 });
 
