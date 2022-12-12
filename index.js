@@ -17,13 +17,14 @@ import axios from 'axios';
 import productsFeaturesSetter from './data/dataFeatures.js';
 
 const port = 3001;
-
+// const api = 'https://henry-back-n0uwy6rnb-jonatan200v.vercel.app';
+const api = 'http://localhost:3001';
 async function DB_StartingData() {
   try {
     const users = await User.findAll();
     if (users.length === 0) {
       userInitialData.forEach(async (user) => {
-        await axios.post('http://localhost:3001/api/user/', user);
+        await axios.post(`${api}/api/user/`, user);
       });
       console.log('initial users created successfully');
     }
@@ -33,7 +34,7 @@ async function DB_StartingData() {
       const productInitialDataWithFeatures =
         productsFeaturesSetter(productInitialData);
       productInitialDataWithFeatures.forEach(async (product) => {
-        await axios.post('http://localhost:3001/api/product/', product);
+        await axios.post(`${api}/api/product/`, product);
       });
       console.log('initial products created successfully');
     }
